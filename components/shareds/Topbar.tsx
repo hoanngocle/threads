@@ -1,4 +1,4 @@
-import { SignedIn } from '@clerk/nextjs';
+import { SignOutButton, SignedIn } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,8 +21,17 @@ function Topbar() {
 
             <div className='flex items-center gap-1'>
                 <div className='block md:hidden'>
-                    <SignedIn></SignedIn>
-                    {}
+                    <SignedIn>
+                        <SignOutButton>
+                            <div className='flex cursor-pointer'>
+                                <Image
+                                    src='/assets/logout.svg'
+                                    alt='logout'
+                                ></Image>
+                            </div>
+                        </SignOutButton>
+                    </SignedIn>
+                    {/* {isUserLoggedIn ? <div></div> : <div>aba</div>} */}
                 </div>
             </div>
         </nav>
