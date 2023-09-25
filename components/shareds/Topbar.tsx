@@ -1,4 +1,4 @@
-import { SignOutButton, SignedIn } from '@clerk/nextjs';
+import { OrganizationSwitcher, SignOutButton, SignedIn } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,12 +27,21 @@ function Topbar() {
                                 <Image
                                     src='/assets/logout.svg'
                                     alt='logout'
-                                ></Image>
+                                    width={24}
+                                    height={24}
+                                />
                             </div>
                         </SignOutButton>
                     </SignedIn>
-                    {/* {isUserLoggedIn ? <div></div> : <div>aba</div>} */}
                 </div>
+
+                <OrganizationSwitcher
+                    appearance={{
+                        elements: {
+                            organizationSwitcherTrigger: 'py-2 px-4'
+                        }
+                    }}
+                />
             </div>
         </nav>
     );
